@@ -78,7 +78,6 @@
 
 <p>Find your next favourite coffee recipe.</p>
 
-<h2>Filters</h2>
 <style>
     .filters {
         display: flex;
@@ -86,7 +85,6 @@
     }
 
     .filters div {
-        flex: 0;
         margin-right: 1rem;
     }
 
@@ -95,12 +93,16 @@
     }
 
     .filters select {
+        width: 100%;
         margin-bottom: 1rem;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        padding: 0.5rem;
     }
 </style>
 <div class="filters">
-    <div>
-        <label for="method">Method</label><br>
+    <div style="flex: 1 50%;">
+        <label for="method">Filter by Method</label><br>
         <select id="method">
             <option value="all">All Methods</option>
             <option value="aeropress">Aeropress</option>
@@ -109,8 +111,8 @@
             <option value="v60">V60</option>
         </select>
     </div>
-    <div>
-        <label for="grinder">Grinder</label><br>
+    <div style="flex: 1 50%;">
+        <label for="grinder">Filter by Grinder</label><br>
         <select id="grinder">
             <option value="all">All Grinders</option>
             <option value="comandante">Comandante</option>
@@ -180,182 +182,17 @@
 <ul class="grid">
     
         <li class="card" data-method="" data-grinder="">
-            <a href="/recipes/v60/">
-                <img src="https://images.unsplash.com/photo-1620051524446-5160985790e1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8djYwfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60" alt="V60 Recipe">
-                <div class="card-info">
-                    <h3 style="flex: 0 30%;">V60 Recipe</h3>
-                    <div class="author-card">
-                        <img class="u-photo profile-photo" src="https://jamesg.blog/assets/coffeeshop.jpeg" alt="Author">
-                        <div>
-                            <p style="font-size: 12px; margin: 0;">Written by</p>
-                            <p style="margin: 0;">James' Coffee Blog</p>
-                        </div>
-                    </div>
-                </div>
-                <ul class="inner-card-list">
-                    <li><time class="dt-duration" datetime="2M">2 minutes</time></li>
-                    <li><data class="p-yield" value="1">1 people</data></li>
-                </ul>
-            </a>
-        </li>
-    
-        <li class="card" data-method="" data-grinder="">
-            <a href="/recipes/orea/">
-                <img src="https://images.unsplash.com/photo-1579027408012-e037bfc269b0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8a2FsaXRhJTIwd2F2ZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60" alt="Orea">
-                <div class="card-info">
-                    <h3 style="flex: 0 30%;">Orea</h3>
-                    <div class="author-card">
-                        <img class="u-photo profile-photo" src="https://jamesg.blog/assets/coffeeshop.jpeg" alt="Author">
-                        <div>
-                            <p style="font-size: 12px; margin: 0;">Written by</p>
-                            <p style="margin: 0;">James' Coffee Blog</p>
-                        </div>
-                    </div>
-                </div>
-                <ul class="inner-card-list">
-                    <li><time class="dt-duration" datetime="2M">2 minutes</time></li>
-                    <li><data class="p-yield" value="1">1 people</data></li>
-                </ul>
-            </a>
-        </li>
-    
-        <li class="card" data-method="" data-grinder="">
-            <a href="/recipes/moccamaster/">
-                <img src="https://images.unsplash.com/photo-1603889780734-c4fb812e65e6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8bW9jY2FtYXN0ZXJ8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60" alt="Moccamaster">
-                <div class="card-info">
-                    <h3 style="flex: 0 30%;">Moccamaster</h3>
-                    <div class="author-card">
-                        <img class="u-photo profile-photo" src="https://jamesg.blog/assets/coffeeshop.jpeg" alt="Author">
-                        <div>
-                            <p style="font-size: 12px; margin: 0;">Written by</p>
-                            <p style="margin: 0;">James' Coffee Blog</p>
-                        </div>
-                    </div>
-                </div>
-                <ul class="inner-card-list">
-                    <li><time class="dt-duration" datetime=""></time></li>
-                    <li><data class="p-yield" value=""> people</data></li>
-                </ul>
-            </a>
-        </li>
-    
-        <li class="card" data-method="" data-grinder="">
-            <a href="/recipes/kalita_wave/">
-                <img src="https://images.unsplash.com/photo-1579027408012-e037bfc269b0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8a2FsaXRhJTIwd2F2ZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60" alt="Kalita Wave">
-                <div class="card-info">
-                    <h3 style="flex: 0 30%;">Kalita Wave</h3>
-                    <div class="author-card">
-                        <img class="u-photo profile-photo" src="https://jamesg.blog/assets/coffeeshop.jpeg" alt="Author">
-                        <div>
-                            <p style="font-size: 12px; margin: 0;">Written by</p>
-                            <p style="margin: 0;">James' Coffee Blog</p>
-                        </div>
-                    </div>
-                </div>
-                <ul class="inner-card-list">
-                    <li><time class="dt-duration" datetime="2M">2 minutes</time></li>
-                    <li><data class="p-yield" value="1">1 people</data></li>
-                </ul>
-            </a>
-        </li>
-    
-        <li class="card" data-method="" data-grinder="">
-            <a href="/recipes/iced_latte/">
-                <img src="https://images.unsplash.com/photo-1514295224281-fce533c599dc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8aWNlZCUyMGxhdHRlfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60" alt="Iced Latte">
-                <div class="card-info">
-                    <h3 style="flex: 0 30%;">Iced Latte</h3>
-                    <div class="author-card">
-                        <img class="u-photo profile-photo" src="https://jamesg.blog/assets/coffeeshop.jpeg" alt="Author">
-                        <div>
-                            <p style="font-size: 12px; margin: 0;">Written by</p>
-                            <p style="margin: 0;">James' Coffee Blog</p>
-                        </div>
-                    </div>
-                </div>
-                <ul class="inner-card-list">
-                    <li><time class="dt-duration" datetime="2M">2 minutes</time></li>
-                    <li><data class="p-yield" value="1">1 people</data></li>
-                </ul>
-            </a>
-        </li>
-    
-        <li class="card" data-method="" data-grinder="">
-            <a href="/recipes/french_press/">
-                <img src="https://images.unsplash.com/photo-1519082274554-1ca37fb8abb7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8RlJFTkNIJTIwcHJlc3N8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60" alt="French Press">
-                <div class="card-info">
-                    <h3 style="flex: 0 30%;">French Press</h3>
-                    <div class="author-card">
-                        <img class="u-photo profile-photo" src="https://jamesg.blog/assets/coffeeshop.jpeg" alt="Author">
-                        <div>
-                            <p style="font-size: 12px; margin: 0;">Written by</p>
-                            <p style="margin: 0;">James' Coffee Blog</p>
-                        </div>
-                    </div>
-                </div>
-                <ul class="inner-card-list">
-                    <li><time class="dt-duration" datetime=""></time></li>
-                    <li><data class="p-yield" value=""> people</data></li>
-                </ul>
-            </a>
-        </li>
-    
-        <li class="card" data-method="" data-grinder="">
-            <a href="/recipes/chemex/">
-                <img src="https://images.unsplash.com/photo-1574359172160-c7ae4fadcacc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y2hlbWV4fGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60" alt="Chemex">
-                <div class="card-info">
-                    <h3 style="flex: 0 30%;">Chemex</h3>
-                    <div class="author-card">
-                        <img class="u-photo profile-photo" src="https://jamesg.blog/assets/coffeeshop.jpeg" alt="Author">
-                        <div>
-                            <p style="font-size: 12px; margin: 0;">Written by</p>
-                            <p style="margin: 0;">James' Coffee Blog</p>
-                        </div>
-                    </div>
-                </div>
-                <ul class="inner-card-list">
-                    <li><time class="dt-duration" datetime="2M">2 minutes</time></li>
-                    <li><data class="p-yield" value="1">1 people</data></li>
-                </ul>
-            </a>
-        </li>
-    
-        <li class="card" data-method="" data-grinder="">
-            <a href="/recipes/aromaboy/">
-                <img src="https://images.unsplash.com/photo-1559712635-f196be14f14a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YWVyb3ByZXNzfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60" alt="Aromaboy">
-                <div class="card-info">
-                    <h3 style="flex: 0 30%;">Aromaboy</h3>
-                    <div class="author-card">
-                        <img class="u-photo profile-photo" src="https://jamesg.blog/assets/coffeeshop.jpeg" alt="Author">
-                        <div>
-                            <p style="font-size: 12px; margin: 0;">Written by</p>
-                            <p style="margin: 0;">James' Coffee Blog</p>
-                        </div>
-                    </div>
-                </div>
-                <ul class="inner-card-list">
-                    <li><time class="dt-duration" datetime=""></time></li>
-                    <li><data class="p-yield" value=""> people</data></li>
-                </ul>
-            </a>
-        </li>
-    
-        <li class="card" data-method="" data-grinder="">
             <a href="/recipes/aeropress_french_press/">
                 <img src="https://jamesg.blog/assets/aeropress_brewing_chamber.jpeg" alt="Aeropress (French Press Style)">
                 <div class="card-info">
                     <h3 style="flex: 0 30%;">Aeropress (French Press Style)</h3>
-                    <div class="author-card">
-                        <img class="u-photo profile-photo" src="https://jamesg.blog/assets/coffeeshop.jpeg" alt="Author">
-                        <div>
-                            <p style="font-size: 12px; margin: 0;">Written by</p>
-                            <p style="margin: 0;">James' Coffee Blog</p>
-                        </div>
-                    </div>
                 </div>
-                <ul class="inner-card-list">
-                    <li><time class="dt-duration" datetime="4M">4 minutes</time></li>
-                    <li><data class="p-yield" value="1">1 people</data></li>
-                </ul>
+                
+                    <ul class="inner-card-list">
+                        <li><time class="dt-duration" datetime="4M"><i class="fa-solid fa-clock"></i> 4 minutes</time></li>
+                        <li><data class="p-yield" value="1"><i class="fa-solid fa-mug-hot"></i> 1 serving</data></li>
+                    </ul>
+                
             </a>
         </li>
     
@@ -364,18 +201,118 @@
                 <img src="https://jamesg.blog/assets/aeropress_brewing_chamber.jpeg" alt="Inverted Aeropress">
                 <div class="card-info">
                     <h3 style="flex: 0 30%;">Inverted Aeropress</h3>
-                    <div class="author-card">
-                        <img class="u-photo profile-photo" src="https://jamesg.blog/assets/coffeeshop.jpeg" alt="Author">
-                        <div>
-                            <p style="font-size: 12px; margin: 0;">Written by</p>
-                            <p style="margin: 0;">James' Coffee Blog</p>
-                        </div>
-                    </div>
                 </div>
-                <ul class="inner-card-list">
-                    <li><time class="dt-duration" datetime="1M35S">1 minute 35 seconds</time></li>
-                    <li><data class="p-yield" value="1">1 people</data></li>
-                </ul>
+                
+                    <ul class="inner-card-list">
+                        <li><time class="dt-duration" datetime="1M35S"><i class="fa-solid fa-clock"></i> 1 minute 35 seconds</time></li>
+                        <li><data class="p-yield" value="1"><i class="fa-solid fa-mug-hot"></i> 1 serving</data></li>
+                    </ul>
+                
+            </a>
+        </li>
+    
+        <li class="card" data-method="" data-grinder="">
+            <a href="/recipes/aromaboy/">
+                <img src="https://images.unsplash.com/photo-1559712635-f196be14f14a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YWVyb3ByZXNzfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60" alt="Aromaboy">
+                <div class="card-info">
+                    <h3 style="flex: 0 30%;">Aromaboy</h3>
+                </div>
+                
+            </a>
+        </li>
+    
+        <li class="card" data-method="" data-grinder="">
+            <a href="/recipes/chemex/">
+                <img src="https://images.unsplash.com/photo-1574359172160-c7ae4fadcacc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y2hlbWV4fGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60" alt="Chemex">
+                <div class="card-info">
+                    <h3 style="flex: 0 30%;">Chemex</h3>
+                </div>
+                
+                    <ul class="inner-card-list">
+                        <li><time class="dt-duration" datetime="2M"><i class="fa-solid fa-clock"></i> 2 minutes</time></li>
+                        <li><data class="p-yield" value="1"><i class="fa-solid fa-mug-hot"></i> 1 serving</data></li>
+                    </ul>
+                
+            </a>
+        </li>
+    
+        <li class="card" data-method="" data-grinder="">
+            <a href="/recipes/french_press/">
+                <img src="https://images.unsplash.com/photo-1519082274554-1ca37fb8abb7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8RlJFTkNIJTIwcHJlc3N8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60" alt="French Press">
+                <div class="card-info">
+                    <h3 style="flex: 0 30%;">French Press</h3>
+                </div>
+                
+            </a>
+        </li>
+    
+        <li class="card" data-method="" data-grinder="">
+            <a href="/recipes/iced_latte/">
+                <img src="https://images.unsplash.com/photo-1514295224281-fce533c599dc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8aWNlZCUyMGxhdHRlfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60" alt="Iced Latte">
+                <div class="card-info">
+                    <h3 style="flex: 0 30%;">Iced Latte</h3>
+                </div>
+                
+                    <ul class="inner-card-list">
+                        <li><time class="dt-duration" datetime="2M"><i class="fa-solid fa-clock"></i> 2 minutes</time></li>
+                        <li><data class="p-yield" value="1"><i class="fa-solid fa-mug-hot"></i> 1 serving</data></li>
+                    </ul>
+                
+            </a>
+        </li>
+    
+        <li class="card" data-method="" data-grinder="">
+            <a href="/recipes/kalita_wave/">
+                <img src="https://images.unsplash.com/photo-1579027408012-e037bfc269b0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8a2FsaXRhJTIwd2F2ZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60" alt="Kalita Wave">
+                <div class="card-info">
+                    <h3 style="flex: 0 30%;">Kalita Wave</h3>
+                </div>
+                
+                    <ul class="inner-card-list">
+                        <li><time class="dt-duration" datetime="2M"><i class="fa-solid fa-clock"></i> 2 minutes</time></li>
+                        <li><data class="p-yield" value="1"><i class="fa-solid fa-mug-hot"></i> 1 serving</data></li>
+                    </ul>
+                
+            </a>
+        </li>
+    
+        <li class="card" data-method="" data-grinder="">
+            <a href="/recipes/moccamaster/">
+                <img src="https://images.unsplash.com/photo-1603889780734-c4fb812e65e6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8bW9jY2FtYXN0ZXJ8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60" alt="Moccamaster">
+                <div class="card-info">
+                    <h3 style="flex: 0 30%;">Moccamaster</h3>
+                </div>
+                
+            </a>
+        </li>
+    
+        <li class="card" data-method="" data-grinder="">
+            <a href="/recipes/orea/">
+                <img src="https://images.unsplash.com/photo-1579027408012-e037bfc269b0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8a2FsaXRhJTIwd2F2ZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60" alt="Orea">
+                <div class="card-info">
+                    <h3 style="flex: 0 30%;">Orea</h3>
+                </div>
+                
+                    <ul class="inner-card-list">
+                        <li><time class="dt-duration" datetime="2M"><i class="fa-solid fa-clock"></i> 2 minutes</time></li>
+                        <li><data class="p-yield" value="1"><i class="fa-solid fa-mug-hot"></i> 1 serving</data></li>
+                    </ul>
+                
+            </a>
+        </li>
+    
+        <li class="card" data-method="" data-grinder="">
+            <a href="/recipes/v60/">
+                <img src="https://images.unsplash.com/photo-1620051524446-5160985790e1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8djYwfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60" alt="V60">
+                <div class="card-info">
+                    <h3 style="flex: 0 30%;">V60</h3>
+                </div>
+                
+                    <ul class="inner-card-list">
+                        <li><time class="dt-duration" datetime="2M"><i class="fa-solid fa-clock"></i> 2 minutes</time></li>
+                        <li><data class="p-yield" value="1"><i class="fa-solid fa-mug-hot"></i> 1 serving</data></li>
+                    </ul>
+                
             </a>
         </li>
     

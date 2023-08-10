@@ -12,7 +12,7 @@ layout: main.njk
 {% else %}
     <article class="h-recipe">
         <div class="top-section">
-            <h1 class="p-name">{{ title }}</h1>
+            <h1 class="p-name">How to Brew Coffee with a {{ title }}</h1>
             <div class="p-author h-card profile-card">
                 <img class="u-photo profile-photo" src="https://jamesg.blog/assets/coffeeshop.jpeg" alt="Author">
                 <div>
@@ -38,14 +38,19 @@ layout: main.njk
 <h2>Explore More Recipes</h2>
 
 <ul class="grid">
-    {% for recipe in collections.recipes | slice (0, 6) %}
-        <li class="card">
+    {% for recipe in collections.alphabetical_recipes | slice (0, 6) %}
+        <li class="card" data-method="{{ recipe.data.method }}" data-grinder="{{ recipe.data.grinder }}">
             <a href="{{ recipe.url }}">
-                <h3>{{ recipe.data.title }}</h3>
-                <ul class="inner-card-list">
-                    <li><time class="dt-duration" datetime="{{ recipe.data.duration_processed }}">{{ recipe.data.duration }}</time></li>
-                    <li><data class="p-yield" value="{{ recipe.data.serves }}">{{ recipe.data.serves }} people</data></li>
-                </ul>
+                <img src="{{ recipe.data.image }}" alt="{{ recipe.data.title }}">
+                <div class="card-info">
+                    <h3 style="flex: 0 30%;">{{ recipe.data.title }}</h3>
+                </div>
+                {% if recipe.data.duration_processed %}
+                    <ul class="inner-card-list">
+                        <li><time class="dt-duration" datetime="{{ recipe.data.duration_processed }}"><i class="fa-solid fa-clock"></i> {{ recipe.data.duration }}</time></li>
+                        <li><data class="p-yield" value="{{ recipe.data.serves }}"><i class="fa-solid fa-mug-hot"></i> {{ recipe.data.serves }} {% if recipe.data.serves == 1 %}serving{% else %}servings{% endif %}</data></li>
+                    </ul>
+                {% endif %}
             </a>
         </li>
     {% endfor %}

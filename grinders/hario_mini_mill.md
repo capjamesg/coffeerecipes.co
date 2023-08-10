@@ -7,4 +7,5 @@ burr_type: Conical
 cost: 30
 home_grind_quality: Good
 manual_electric: Manual
+image: https://jamesg.blog/assets/hario_mini_mill.jpeg
 ---

@@ -7,7 +7,6 @@ title: Explore Coffee Recipes
 
 <p>Find your next favourite coffee recipe.</p>
 
-<h2>Filters</h2>
 <style>
     .filters {
         display: flex;
@@ -15,7 +14,6 @@ title: Explore Coffee Recipes
     }
 
     .filters div {
-        flex: 0;
         margin-right: 1rem;
     }
 
@@ -24,12 +22,16 @@ title: Explore Coffee Recipes
     }
 
     .filters select {
+        width: 100%;
         margin-bottom: 1rem;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        padding: 0.5rem;
     }
 </style>
 <div class="filters">
-    <div>
-        <label for="method">Method</label><br>
+    <div style="flex: 1 50%;">
+        <label for="method">Filter by Method</label><br>
         <select id="method">
             <option value="all">All Methods</option>
             <option value="aeropress">Aeropress</option>
@@ -38,8 +40,8 @@ title: Explore Coffee Recipes
             <option value="v60">V60</option>
         </select>
     </div>
-    <div>
-        <label for="grinder">Grinder</label><br>
+    <div style="flex: 1 50%;">
+        <label for="grinder">Filter by Grinder</label><br>
         <select id="grinder">
             <option value="all">All Grinders</option>
             <option value="comandante">Comandante</option>
@@ -107,24 +109,19 @@ title: Explore Coffee Recipes
 </style>
 
 <ul class="grid">
-    {% for recipe in collections.recipes %}
+    {% for recipe in collections.alphabetical_recipes %}
         <li class="card" data-method="{{ recipe.data.method }}" data-grinder="{{ recipe.data.grinder }}">
             <a href="{{ recipe.url }}">
                 <img src="{{ recipe.data.image }}" alt="{{ recipe.data.title }}">
                 <div class="card-info">
                     <h3 style="flex: 0 30%;">{{ recipe.data.title }}</h3>
-                    <div class="author-card">
-                        <img class="u-photo profile-photo" src="https://jamesg.blog/assets/coffeeshop.jpeg" alt="Author">
-                        <div>
-                            <p style="font-size: 12px; margin: 0;">Written by</p>
-                            <p style="margin: 0;">James' Coffee Blog</p>
-                        </div>
-                    </div>
                 </div>
-                <ul class="inner-card-list">
-                    <li><time class="dt-duration" datetime="{{ recipe.data.duration_processed }}">{{ recipe.data.duration }}</time></li>
-                    <li><data class="p-yield" value="{{ recipe.data.serves }}">{{ recipe.data.serves }} people</data></li>
-                </ul>
+                {% if recipe.data.duration_processed %}
+                    <ul class="inner-card-list">
+                        <li><time class="dt-duration" datetime="{{ recipe.data.duration_processed }}"><i class="fa-solid fa-clock"></i> {{ recipe.data.duration }}</time></li>
+                        <li><data class="p-yield" value="{{ recipe.data.serves }}"><i class="fa-solid fa-mug-hot"></i> {{ recipe.data.serves }} {% if recipe.data.serves == 1 %}serving{% else %}servings{% endif %}</data></li>
+                    </ul>
+                {% endif %}
             </a>
         </li>
     {% endfor %}

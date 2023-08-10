@@ -5,7 +5,10 @@
 * {
     box-sizing: border-box;
     font-family: "proxima-nova",sans-serif;
-    line-height: 1.5;
+    line-height: 1.5em;
+}
+li {
+    padding-bottom: 5px;
 }
 html, body {
     padding: 0;
@@ -19,6 +22,9 @@ img {
     max-width: 500px;
     margin: auto;
     border-radius: 5px;
+}
+h1 {
+    margin: 0;
 }
 .grid {
     display: grid;
@@ -53,6 +59,7 @@ main, .nav_inner {
 max-width: 800px;
 margin: 0 auto;
 padding: 1rem;
+padding-bottom: 0;
 }
 .profile-photo {
 border-radius: 10px;
@@ -156,11 +163,6 @@ border: 1px solid var(--main-color);
 border-radius: 5px;
 margin-bottom: 10px;
 }
-a:focus {
-outline: none;
-background-color: var(--main-color);
-color: white;
-}
 .two-image-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -195,4 +197,17 @@ td:first-child {
 
 th:first-child {
     color: var(--main-color);
+}
+@media (max-width: 600px) {
+    .top-section {
+        display: block;
+    }
+    .profile-card {
+        width: 100%;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    img {
+        margin: initial;
+    }
 }

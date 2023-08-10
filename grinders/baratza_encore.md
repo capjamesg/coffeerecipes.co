@@ -7,4 +7,5 @@ burr_type: Conical
 cost: 139
 home_grind_quality: Good
 manual_electric: Electric
+image: https://jamesg.blog/assets/baratza.jpeg
 ---
