@@ -1,0 +1,79 @@
+---
+layout: main
+---
+
+<section class="breadcrumbs">
+    <a href="/">Coffee Recipes</a> &raquo; <a href="/compare">Compare</a> &raquo; {{ title }}
+</section>
+
+<h1>{{ title }}</h1>
+
+<div class="two-image-grid">
+    <div>
+        <img src="{{ page.first_image }}" alt="{{ page.first_item }}">
+        <figcaption>Comandante C40</figcaption>
+    </div>
+    <div>
+        <img src="{{ page.second_image }}" alt="{{ page.second_item }}">
+        <figcaption>Hario Mini Mill</figcaption>
+    </div>
+</div>
+
+<p>Compare the {{ first_item }} and the {{ second_item }} grinders.</p>
+
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Cost</th>
+            <th>Manual / Electric</th>
+            <th>Ideal For</th>
+            <th>Home Grind Quality</th>
+            <th>Rating</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>{{ page.first_item }}</td>
+            <td>$250</td>
+            <td>Manual</td>
+            <td>Home</td>
+            <td>Excellent</td>
+            <td>{% for rating in first_rating %} <i class="fa-solid fa-star"></i>{% endfor %}</td>
+        </tr>
+        <tr>
+            <td>{{ page.second_item }}</td>
+            <td>$40</td>
+            <td>Manual</td>
+            <td>Travel</td>
+            <td>Good</td>
+            <td>{% for rating in second_rating %} <i class="fa-solid fa-star"></i>{% endfor %}</td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>Compare to Other Grinders</h2>
+
+<ul class="grid">
+    {% for recipe in collections.grinders | slice (0, 6) %}
+        <li class="card" data-method="{{ recipe.data.method }}" data-grinder="{{ recipe.data.grinder }}">
+            <a href="{{ recipe.url }}">
+                <div class="card-info">
+                    <h3 style="flex: 0 30%;">{{ recipe.data.title }}</h3>
+                </div>
+            </a>
+        </li>
+    {% endfor %}
+</ul>
+
+<h2>View Other Grinders</h2>
+
+<ul class="grid">
+    {% for recipe in collections.grinders | slice (0, 6) %}
+        <li class="card">
+            <a href="{{ recipe.url }}">
+                <h3>{{ recipe.data.title }}</h3>
+            </a>
+        </li>
+    {% endfor %}
+</ul>

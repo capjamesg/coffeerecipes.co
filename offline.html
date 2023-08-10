@@ -1,0 +1,42 @@
+---
+layout: main.njk
+title: Offline
+---
+
+<h1>You Are Offline</h1>
+
+<ul id="history"></ul>
+
+<script>
+    // This code is a slightly modified version of https://adactio.com/offline
+    // Thank you Jeremy for all of your amazing work on service workers and offline mode!
+    (async function listPages() {
+        const browsingHistory = [];
+        const parser = new DOMParser();
+        const cache = await caches.open('pwa');
+        const keys = await cache.keys();
+        for (const request of keys) {
+            const response = await cache.match(request);
+            const html = await response.text();
+            const dom = parser.parseFromString(html, 'text/html');
+            if (dom.querySelector('.h-entry h1.p-name')) {
+                const data = new Object;
+                data.url = request.url;
+                data.title = dom.querySelector('.h-entry .p-name').innerText;
+                browsingHistory.push(data);
+            }
+        }
+        if (browsingHistory.length) {
+            browsingHistory.sort( (a,b) => {
+                return b.timestamp - a.timestamp;
+            });
+            let markup = '<p>But you still have something to read:</p>';
+            browsingHistory.forEach( data => {
+                markup += `
+    <h2><a href="${ data.url }">${ data.title }</a></h2>
+    `;
+            });
+            document.getElementById('history').insertAdjacentHTML('beforeend', markup);
+        }
+    })();
+</script>

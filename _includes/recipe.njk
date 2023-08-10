@@ -1,0 +1,52 @@
+---
+layout: main.njk
+---
+
+<section class="breadcrumbs">
+    <a href="/">Coffee Recipes</a> &raquo; {{ title }}
+</section>
+{% if norecipe %}
+    <h1>{{ title }} Recipe</h1>
+    <p>We don't have a recipe for {{ title }} yet.</p>
+    <p>If you have a recipe for {{ title }}, feel free to <a href="/submit">submit it</a>.</p>
+{% else %}
+    <article class="h-recipe">
+        <div class="top-section">
+            <h1 class="p-name">{{ title }}</h1>
+            <div class="p-author h-card profile-card">
+                <img class="u-photo profile-photo" src="https://jamesg.blog/assets/coffeeshop.jpeg" alt="Author">
+                <div>
+                    <p style="font-size: 12px; margin: 0;">Written by</p>
+                    <p style="margin: 0;">James' Coffee Blog</p>
+                </div>
+            </div>
+        </div>
+
+        <p>Takes <time class="dt-duration" datetime="{{ duration_processed }}">{{ duration }}</time> to prepare, serves <data class="p-yield" value="{{ serves }}">{{ serves }} {% if serves == 1 %}person{% else %}people{% endif %}</data>.</p>
+
+        <div class="e-instructions">
+            <h2>Instructions</h2>
+            <ol>
+                {% for step in steps %}
+                    <li>{{ step }}</li>
+                {% endfor %}
+            </ol>
+        </div>
+    </article>
+{% endif %}
+
+<h2>Explore More Recipes</h2>
+
+<ul class="grid">
+    {% for recipe in collections.recipes | slice (0, 6) %}
+        <li class="card">
+            <a href="{{ recipe.url }}">
+                <h3>{{ recipe.data.title }}</h3>
+                <ul class="inner-card-list">
+                    <li><time class="dt-duration" datetime="{{ recipe.data.duration_processed }}">{{ recipe.data.duration }}</time></li>
+                    <li><data class="p-yield" value="{{ recipe.data.serves }}">{{ recipe.data.serves }} people</data></li>
+                </ul>
+            </a>
+        </li>
+    {% endfor %}
+</ul>

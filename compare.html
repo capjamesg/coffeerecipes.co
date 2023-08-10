@@ -1,0 +1,39 @@
+---
+layout: main
+title: Compare Grinders
+---
+
+<section class="breadcrumbs">
+    <a href="/">Coffee Recipes</a> &raquo; {{ title }}
+</section>
+
+<h1>{{ title }}</h1>
+
+<p>Select two grinders to compare.</p>
+
+<select id="first-grinder">
+    <option value="">Select a grinder</option>
+    {% for recipe in collections.grinders %}
+    <option value="{{ recipe.data.title }}">{{ recipe.data.title }}</option>
+    {% endfor %}
+</select>
+
+<select id="second-grinder">
+    <option value="">Select a grinder</option>
+    {% for recipe in collections.grinders %}
+    <option value="{{ recipe.data.title }}">{{ recipe.data.title }}</option>
+    {% endfor %}
+</select>
+
+<script>
+    const firstGrinder = document.getElementById('first-grinder');
+    const secondGrinder = document.getElementById('second-grinder');
+
+    firstGrinder.addEventListener('change', (event) => {
+        window.location.href = `/compare/grinders/${event.target.value}/${secondGrinder.value}`;
+    });
+
+    secondGrinder.addEventListener('change', (event) => {
+        window.location.href = `/compare/grinders/${firstGrinder.value}/${event.target.value}`;
+    });
+</script>

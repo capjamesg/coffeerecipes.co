@@ -1,0 +1,16 @@
+---
+layout: main
+title: Sitemap
+---
+
+<h1>Sitemap</h1>
+
+<p>View all pages on this site.</p>
+
+<ul>
+    {% for page in collections.alphabetical %}
+    <li>
+        <a href="{{ page.url | url }}">{{ page.data.title }}</a>
+    </li>
+    {% endfor %}
+</ul>

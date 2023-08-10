@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Explore Coffee Recipes - Coffee Recipes</title>
+
+        <link rel="icon" href="/assets/coffee.png" type="image/x-icon">
+
+        <link rel="stylesheet" href="/assets/css/styles.css">
+
+        <link rel="manifest" href="/assets/manifest.json">
+
+        <script src="/assets/sw.js"></script>
+
+        <script>
+          (function(f, a, t, h, o, m){
+            a[h]=a[h]||function(){
+              (a[h].q=a[h].q||[]).push(arguments)
+            };
+            o=f.createElement('script'),
+            m=f.getElementsByTagName('script')[0];
+            o.async=1; o.src=t; o.id='fathom-script';
+            m.parentNode.insertBefore(o,m)
+          })(document, window, '//analytics.coffeerecipes.co/tracker.js', 'fathom');
+          fathom('set', 'siteId', 'BDAEE');
+          fathom('trackPageview');
+        </script>
+        <!-- / Fathom -->
+
+        
+          <meta name="description" content="Find a coffee recipe for your brewing device and grinder.">
+          <meta name="og:description" content="Find a coffee recipe for your brewing device and grinder.">
+        
+
+        <script src="https://kit.fontawesome.com/52ae67a839.js" crossorigin="anonymous" async></script>
+
+        <meta name="og:title" content="Explore Coffee Recipes">
+        <meta name="og:url" content="https://coffeerecipes.co/">
+        
+        
+          <meta name="og:image" content="https://images.pexels.com/photos/1431324/pexels-photo-1431324.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2">
+        
+
+        <meta name="twitter:card" content="summary_large_image">
+        
+        <link rel="canonical" href="https://coffeerecipes.co/">
+
+        
+        
+        
+        
+        <script>
+          var hovercards = ;
+        </script>
+        
+    </head>
+    <body>
+        <nav>
+          <div class="nav_inner">
+            <div>
+              <p style="margin: 0;">Coffee Recipes</p>
+              <p style="margin: 0;"><em id="special_message"></em></p>
+            </div>
+            <ul style="border-top: 2px solid #6b52bf; padding-top: 15px;">
+              <li><a href="/">Explore Recipes</a></li>
+              <li><a href="/submit">Submit</a></li>
+              <li><a href="/about">About</a></li>
+            </ul>
+          </div>
+        </nav>
+        
+        <main>
+          
+<h1 style="margin: 0;">Explore Coffee Recipes</h1>
+
+<p>Find your next favourite coffee recipe.</p>
+
+<h2>Filters</h2>
+<style>
+    .filters {
+        display: flex;
+        margin-bottom: 1rem;
+    }
+
+    .filters div {
+        flex: 0;
+        margin-right: 1rem;
+    }
+
+    .filters label {
+        font-weight: bold;
+    }
+
+    .filters select {
+        margin-bottom: 1rem;
+    }
+</style>
+<div class="filters">
+    <div>
+        <label for="method">Method</label><br>
+        <select id="method">
+            <option value="all">All Methods</option>
+            <option value="aeropress">Aeropress</option>
+            <option value="chemex">Chemex</option>
+            <option value="french-press">French Press</option>
+            <option value="v60">V60</option>
+        </select>
+    </div>
+    <div>
+        <label for="grinder">Grinder</label><br>
+        <select id="grinder">
+            <option value="all">All Grinders</option>
+            <option value="comandante">Comandante</option>
+            <option value="encore">Baratza Encore</option>
+            <option value="wilfa">Wilfa Svart</option>
+        </select>
+    </div>
+</div>
+
+<script>
+    function filterByMethod(method) {
+        const cards = document.querySelectorAll('.card');
+        cards.forEach(card => {
+            if (method === 'all') {
+                card.style.display = 'block';
+            } else {
+                if (card.dataset.method === method) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            }
+        });
+    }
+
+    document.querySelector('#method').addEventListener('change', function() {
+        filterByMethod(this.value);
+    });
+
+    function filterByGrinder(grinder) {
+        const cards = document.querySelectorAll('.card');
+        cards.forEach(card => {
+            if (grinder === 'all') {
+                card.style.display = 'block';
+            } else {
+                if (card.dataset.grinder === grinder) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            }
+        });
+    }
+
+    document.querySelector('#grinder').addEventListener('change', function() {
+        filterByGrinder(this.value);
+    });
+</script>
+
+<style>
+    .card-info {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .card-info img {
+        width: initial;
+    }
+    .author-card {
+        display: flex;
+        align-items: center;
+        flex: 1 50%;
+        margin-bottom: 25px;
+    }
+</style>
+
+<ul class="grid">
+    
+        <li class="card" data-method="" data-grinder="">
+            <a href="/recipes/v60/">
+                <img src="https://images.unsplash.com/photo-1620051524446-5160985790e1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8djYwfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60" alt="V60 Recipe">
+                <div class="card-info">
+                    <h3 style="flex: 0 30%;">V60 Recipe</h3>
+                    <div class="author-card">
+                        <img class="u-photo profile-photo" src="https://jamesg.blog/assets/coffeeshop.jpeg" alt="Author">
+                        <div>
+                            <p style="font-size: 12px; margin: 0;">Written by</p>
+                            <p style="margin: 0;">James' Coffee Blog</p>
+                        </div>
+                    </div>
+                </div>
+                <ul class="inner-card-list">
+                    <li><time class="dt-duration" datetime="2M">2 minutes</time></li>
+                    <li><data class="p-yield" value="1">1 people</data></li>
+                </ul>
+            </a>
+        </li>
+    
+        <li class="card" data-method="" data-grinder="">
+            <a href="/recipes/orea/">
+                <img src="https://images.unsplash.com/photo-1579027408012-e037bfc269b0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8a2FsaXRhJTIwd2F2ZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60" alt="Orea">
+                <div class="card-info">
+                    <h3 style="flex: 0 30%;">Orea</h3>
+                    <div class="author-card">
+                        <img class="u-photo profile-photo" src="https://jamesg.blog/assets/coffeeshop.jpeg" alt="Author">
+                        <div>
+                            <p style="font-size: 12px; margin: 0;">Written by</p>
+                            <p style="margin: 0;">James' Coffee Blog</p>
+                        </div>
+                    </div>
+                </div>
+                <ul class="inner-card-list">
+                    <li><time class="dt-duration" datetime="2M">2 minutes</time></li>
+                    <li><data class="p-yield" value="1">1 people</data></li>
+                </ul>
+            </a>
+        </li>
+    
+        <li class="card" data-method="" data-grinder="">
+            <a href="/recipes/moccamaster/">
+                <img src="https://images.unsplash.com/photo-1603889780734-c4fb812e65e6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8bW9jY2FtYXN0ZXJ8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60" alt="Moccamaster">
+                <div class="card-info">
+                    <h3 style="flex: 0 30%;">Moccamaster</h3>
+                    <div class="author-card">
+                        <img class="u-photo profile-photo" src="https://jamesg.blog/assets/coffeeshop.jpeg" alt="Author">
+                        <div>
+                            <p style="font-size: 12px; margin: 0;">Written by</p>
+                            <p style="margin: 0;">James' Coffee Blog</p>
+                        </div>
+                    </div>
+                </div>
+                <ul class="inner-card-list">
+                    <li><time class="dt-duration" datetime=""></time></li>
+                    <li><data class="p-yield" value=""> people</data></li>
+                </ul>
+            </a>
+        </li>
+    
+        <li class="card" data-method="" data-grinder="">
+            <a href="/recipes/kalita_wave/">
+                <img src="https://images.unsplash.com/photo-1579027408012-e037bfc269b0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8a2FsaXRhJTIwd2F2ZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60" alt="Kalita Wave">
+                <div class="card-info">
+                    <h3 style="flex: 0 30%;">Kalita Wave</h3>
+                    <div class="author-card">
+                        <img class="u-photo profile-photo" src="https://jamesg.blog/assets/coffeeshop.jpeg" alt="Author">
+                        <div>
+                            <p style="font-size: 12px; margin: 0;">Written by</p>
+                            <p style="margin: 0;">James' Coffee Blog</p>
+                        </div>
+                    </div>
+                </div>
+                <ul class="inner-card-list">
+                    <li><time class="dt-duration" datetime="2M">2 minutes</time></li>
+                    <li><data class="p-yield" value="1">1 people</data></li>
+                </ul>
+            </a>
+        </li>
+    
+        <li class="card" data-method="" data-grinder="">
+            <a href="/recipes/iced_latte/">
+                <img src="https://images.unsplash.com/photo-1514295224281-fce533c599dc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8aWNlZCUyMGxhdHRlfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60" alt="Iced Latte">
+                <div class="card-info">
+                    <h3 style="flex: 0 30%;">Iced Latte</h3>
+                    <div class="author-card">
+                        <img class="u-photo profile-photo" src="https://jamesg.blog/assets/coffeeshop.jpeg" alt="Author">
+                        <div>
+                            <p style="font-size: 12px; margin: 0;">Written by</p>
+                            <p style="margin: 0;">James' Coffee Blog</p>
+                        </div>
+                    </div>
+                </div>
+                <ul class="inner-card-list">
+                    <li><time class="dt-duration" datetime="2M">2 minutes</time></li>
+                    <li><data class="p-yield" value="1">1 people</data></li>
+                </ul>
+            </a>
+        </li>
+    
+        <li class="card" data-method="" data-grinder="">
+            <a href="/recipes/french_press/">
+                <img src="https://images.unsplash.com/photo-1519082274554-1ca37fb8abb7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8RlJFTkNIJTIwcHJlc3N8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60" alt="French Press">
+                <div class="card-info">
+                    <h3 style="flex: 0 30%;">French Press</h3>
+                    <div class="author-card">
+                        <img class="u-photo profile-photo" src="https://jamesg.blog/assets/coffeeshop.jpeg" alt="Author">
+                        <div>
+                            <p style="font-size: 12px; margin: 0;">Written by</p>
+                            <p style="margin: 0;">James' Coffee Blog</p>
+                        </div>
+                    </div>
+                </div>
+                <ul class="inner-card-list">
+                    <li><time class="dt-duration" datetime=""></time></li>
+                    <li><data class="p-yield" value=""> people</data></li>
+                </ul>
+            </a>
+        </li>
+    
+        <li class="card" data-method="" data-grinder="">
+            <a href="/recipes/chemex/">
+                <img src="https://images.unsplash.com/photo-1574359172160-c7ae4fadcacc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y2hlbWV4fGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60" alt="Chemex">
+                <div class="card-info">
+                    <h3 style="flex: 0 30%;">Chemex</h3>
+                    <div class="author-card">
+                        <img class="u-photo profile-photo" src="https://jamesg.blog/assets/coffeeshop.jpeg" alt="Author">
+                        <div>
+                            <p style="font-size: 12px; margin: 0;">Written by</p>
+                            <p style="margin: 0;">James' Coffee Blog</p>
+                        </div>
+                    </div>
+                </div>
+                <ul class="inner-card-list">
+                    <li><time class="dt-duration" datetime="2M">2 minutes</time></li>
+                    <li><data class="p-yield" value="1">1 people</data></li>
+                </ul>
+            </a>
+        </li>
+    
+        <li class="card" data-method="" data-grinder="">
+            <a href="/recipes/aromaboy/">
+                <img src="https://images.unsplash.com/photo-1559712635-f196be14f14a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YWVyb3ByZXNzfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60" alt="Aromaboy">
+                <div class="card-info">
+                    <h3 style="flex: 0 30%;">Aromaboy</h3>
+                    <div class="author-card">
+                        <img class="u-photo profile-photo" src="https://jamesg.blog/assets/coffeeshop.jpeg" alt="Author">
+                        <div>
+                            <p style="font-size: 12px; margin: 0;">Written by</p>
+                            <p style="margin: 0;">James' Coffee Blog</p>
+                        </div>
+                    </div>
+                </div>
+                <ul class="inner-card-list">
+                    <li><time class="dt-duration" datetime=""></time></li>
+                    <li><data class="p-yield" value=""> people</data></li>
+                </ul>
+            </a>
+        </li>
+    
+        <li class="card" data-method="" data-grinder="">
+            <a href="/recipes/aeropress_french_press/">
+                <img src="https://jamesg.blog/assets/aeropress_brewing_chamber.jpeg" alt="Aeropress (French Press Style)">
+                <div class="card-info">
+                    <h3 style="flex: 0 30%;">Aeropress (French Press Style)</h3>
+                    <div class="author-card">
+                        <img class="u-photo profile-photo" src="https://jamesg.blog/assets/coffeeshop.jpeg" alt="Author">
+                        <div>
+                            <p style="font-size: 12px; margin: 0;">Written by</p>
+                            <p style="margin: 0;">James' Coffee Blog</p>
+                        </div>
+                    </div>
+                </div>
+                <ul class="inner-card-list">
+                    <li><time class="dt-duration" datetime="4M">4 minutes</time></li>
+                    <li><data class="p-yield" value="1">1 people</data></li>
+                </ul>
+            </a>
+        </li>
+    
+        <li class="card" data-method="" data-grinder="">
+            <a href="/recipes/aeropress/">
+                <img src="https://jamesg.blog/assets/aeropress_brewing_chamber.jpeg" alt="Inverted Aeropress">
+                <div class="card-info">
+                    <h3 style="flex: 0 30%;">Inverted Aeropress</h3>
+                    <div class="author-card">
+                        <img class="u-photo profile-photo" src="https://jamesg.blog/assets/coffeeshop.jpeg" alt="Author">
+                        <div>
+                            <p style="font-size: 12px; margin: 0;">Written by</p>
+                            <p style="margin: 0;">James' Coffee Blog</p>
+                        </div>
+                    </div>
+                </div>
+                <ul class="inner-card-list">
+                    <li><time class="dt-duration" datetime="1M35S">1 minute 35 seconds</time></li>
+                    <li><data class="p-yield" value="1">1 people</data></li>
+                </ul>
+            </a>
+        </li>
+    
+</ul>
+
+<style>
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        grid-gap: 1rem;
+    }
+</style>
+        </main>
+        <footer>
+          <ul>
+            <li><a href="/grinders">Explore Grinders</a></li>
+            <li><a href="/install">Install as an App</a></li>
+            <li><a href="/ratio">Coffee Ratio Calculator</a></li>
+            <li><a href="/sitemap">Sitemap</a></li>
+          </ul>
+        </footer>
+        <script>
+          var messages = [
+            "Coffee recipes made simple.",
+            "Coffee is amazing.",
+            "Coffee, coffee, coffee.",
+            "This site works offline.",
+            "Serving fine coffee recipes since 2023.",
+          ]
+          var message = messages[Math.floor(Math.random() * messages.length)];
+          document.getElementById("special_message").innerHTML = message;
+        </script>
+    </body>
+</html>

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>{{ title }} - Coffee Recipes</title>
+
+        <link rel="icon" href="/assets/coffee.png" type="image/x-icon">
+
+        <link rel="stylesheet" href="/assets/css/styles.css">
+
+        <link rel="manifest" href="/assets/manifest.json">
+
+        <script src="/assets/sw.js"></script>
+
+        <script>
+          (function(f, a, t, h, o, m){
+            a[h]=a[h]||function(){
+              (a[h].q=a[h].q||[]).push(arguments)
+            };
+            o=f.createElement('script'),
+            m=f.getElementsByTagName('script')[0];
+            o.async=1; o.src=t; o.id='fathom-script';
+            m.parentNode.insertBefore(o,m)
+          })(document, window, '//analytics.coffeerecipes.co/tracker.js', 'fathom');
+          fathom('set', 'siteId', 'BDAEE');
+          fathom('trackPageview');
+        </script>
+        <!-- / Fathom -->
+
+        {% if layout == "recipe" %}
+          <meta name="description" content="Follow the steps below to make {{ title }} with your {{ brewer }} and {{ grinder }}.">
+          <meta name="og:description" content="Follow the steps below to make {{ title }} with your {{ brewer }} and {{ grinder }}.">
+        {% else %}
+          <meta name="description" content="Find a coffee recipe for your brewing device and grinder.">
+          <meta name="og:description" content="Find a coffee recipe for your brewing device and grinder.">
+        {% endif %}
+
+        <script src="https://kit.fontawesome.com/52ae67a839.js" crossorigin="anonymous" async></script>
+
+        <meta name="og:title" content="{{ title }}">
+        <meta name="og:url" content="https://coffeerecipes.co{{ page.url }}">
+        
+        {% if image %}
+          <meta name="og:image" content="{{ image }}">
+        {% else %}
+          <meta name="og:image" content="https://images.pexels.com/photos/1431324/pexels-photo-1431324.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2">
+        {% endif %}
+
+        <meta name="twitter:card" content="summary_large_image">
+        
+        <link rel="canonical" href="https://coffeerecipes.co{{ page.url }}">
+
+        {% if home == true %}
+        <script type="application/ld+json">
+          {
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "url": "https://coffeerecipes.co",
+            "potentialAction": {
+              "@type": "SearchAction",
+              "target": {
+                "@type": "EntryPoint",
+                "urlTemplate": "https://coffeerecipes.co/search?q={search_term_string}"
+              },
+              "query-input": "required name=search_term_string"
+            }
+          }
+        </script>
+        {% endif %}
+        {% if layout == "recipe" %}
+        <script type="application/ld+json">
+            {
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              "itemListElement": [{
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Coffee Recipes",
+                "item": "https://coffeerecipes.co"
+              },{
+                "@type": "ListItem",
+                "position": 3,
+                "name": "{{ title }}"
+              }]
+            },
+        </script>
+        <script type="application/ld+json">
+            {
+              "@context": "https://schema.org/",
+              "@type": "Recipe",
+              "name": "{{ title }}",
+              "author": {
+                "@type": "Person",
+                "name": "James' Coffee Blog"
+              },
+              "image": [
+                "{{ image }}"
+               ],
+              "datePublished": "{{ date }}",
+              "description": "{{ description }}",
+              "prepTime": "{{ duration_processed }}",
+              "recipeYield": "{{ serves }}",
+              "recipeIngredient": [
+                {% for ingredient in ingredients %}
+                "{{ ingredient }}" {% if forloop.last == false %},{% endif %}
+                {% endfor %}
+              ],
+              "recipeInstructions": [
+                {% for step in steps %}
+                "{{ step }}" {% if forloop.last == false %},{% endif %}
+                {% endfor %}
+              ],
+              "recipeCategory": "Coffee",
+              "recipeCuisine": "Coffee",
+              "keywords": [
+                {% for tag in tags %}
+                "{{ tag }}",
+                {% endfor %}
+              ]
+            }
+        </script>
+        {% endif %}
+        {% if aggregate == true %}
+        <script type="application/ld+json">
+            {
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              "itemListElement": [{
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Coffee Recipes",
+                "item": "https://coffeerecipes.co"
+              },{
+                "@type": "ListItem",
+                "position": 2,
+                "name": "{{ brewer }}"
+              },{
+                "@type": "ListItem",
+                "position": 3,
+                "name": "{{ grinder }}"
+              }]
+            },
+        </script>
+        {% endif %}
+        {% if grinder == true %}
+          <script type="application/ld+json">
+            {
+              "context": "https://schema.org",
+              "@type": "Review",
+              "itemReviewed": {
+                "@type": "Thing",
+                "name": "{{ grinder }}"
+              },
+              "author": {
+                "@type": "Person",
+                "name": "James' Coffee Blog"
+              },
+              "reviewRating": {
+                "@type": "Rating",
+                "ratingValue": "{{ rating }}",
+                "bestRating": "5"
+              },
+            }
+          </script>
+        {% endif %}
+        <script>
+          var hovercards = {{ hovercards | safe }};
+        </script>
+        {% if hovercards %}
+          <script src="https://jamesg.blog/assets/js/hovercard.js"></script>
+        {% endif %}
+    </head>
+    <body>
+        <nav>
+          <div class="nav_inner">
+            <div>
+              <p style="margin: 0;">Coffee Recipes</p>
+              <p style="margin: 0;"><em id="special_message"></em></p>
+            </div>
+            <ul style="border-top: 2px solid #6b52bf; padding-top: 15px;">
+              <li><a href="/">Explore Recipes</a></li>
+              <li><a href="/submit">Submit</a></li>
+              <li><a href="/about">About</a></li>
+            </ul>
+          </div>
+        </nav>
+        {% if banner %}
+        <div class="hero-banner-overlay" style="background-image: url({{ banner }}); background-size: cover; background-position: center; height: 200px; display: flex; justify-content: center; align-items: center;">
+          <h1>{{ title }}</h1>
+        </div>
+        {% endif %}
+        <main>
+          {{ content | safe }}
+        </main>
+        <footer>
+          <ul>
+            <li><a href="/grinders">Explore Grinders</a></li>
+            <li><a href="/install">Install as an App</a></li>
+            <li><a href="/ratio">Coffee Ratio Calculator</a></li>
+            <li><a href="/sitemap">Sitemap</a></li>
+          </ul>
+        </footer>
+        <script>
+          var messages = [
+            "Coffee recipes made simple.",
+            "Coffee is amazing.",
+            "Coffee, coffee, coffee.",
+            "This site works offline.",
+            "Serving fine coffee recipes since 2023.",
+          ]
+          var message = messages[Math.floor(Math.random() * messages.length)];
+          document.getElementById("special_message").innerHTML = message;
+        </script>
+    </body>
+</html>
