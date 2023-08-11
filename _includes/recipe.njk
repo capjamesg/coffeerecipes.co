@@ -24,7 +24,7 @@ layout: main.njk
 
         <p>Takes <time class="dt-duration" datetime="{{ duration_processed }}">{{ duration }}</time> to prepare, serves <data class="p-yield" value="{{ serves }}">{{ serves }} {% if serves == 1 %}person{% else %}people{% endif %}</data>.</p>
 
-        <div class="e-instructions">
+        <div class="e-instructions" style="margin-bottom: 4em;">
             <h2>Instructions</h2>
             <ol>
                 {% for step in steps %}

@@ -1,6 +1,7 @@
 ---
 layout: recipe
 title: Chemex
+method: Chemex
 serves: 1
 image: https://images.unsplash.com/photo-1574359172160-c7ae4fadcacc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y2hlbWV4fGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60
 duration_processed: 2M

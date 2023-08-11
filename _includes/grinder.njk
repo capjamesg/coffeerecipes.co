@@ -8,17 +8,20 @@ layout: main
 
 <h1>{{ title }}</h1>
 
-<img src="{{ image }}" alt="{{ title }}">
-<figcaption>{{ title }}</figcaption>
-
-<ul>
-    <li>Cost: ${{ cost }}</li>
-    <li>Manual / Electric: {{ manual_electric }}</li>
-    <li>Ideal For: {{ ideal_for }}</li>
-    <li>Home Grind Quality: {{ home_grind_quality }}</li>
-    <li>Burr Type: {{ burr_type }}</li>
-    <li>Rating: {% for rating in rating %} <i class="fa-solid fa-star"></i>{% endfor %}</li>
-</ul>
+<div class="two-image-grid">
+    <ul>
+        <li>Cost: ${{ cost }}</li>
+        <li>Manual / Electric: {{ manual_electric }}</li>
+        <li>Ideal For: {{ ideal_for }}</li>
+        <li>Home Grind Quality: {{ home_grind_quality }}</li>
+        <li>Burr Type: {{ burr_type }}</li>
+        <li>Rating: {% for rating in first_rating %} <i class="fa-solid fa-star"></i>{% endfor %}</li>
+    </ul>
+    <div>
+        <img src="{{ image }}" alt="{{ title }}">
+        <figcaption>{{ title }}</figcaption>
+    </div>
+</div>
 
 
 <h2>View Other Grinders</h2>

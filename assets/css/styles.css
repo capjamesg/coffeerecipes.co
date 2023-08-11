@@ -198,6 +198,22 @@ td:first-child {
 th:first-child {
     color: var(--main-color);
 }
+.fa-star {
+    color: gold;
+}
+iframe {
+    width: 100%;
+}
+.callout {
+    display: block;
+    border: 3px solid lightgreen;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+.callout p {
+    margin: 0;
+}
 @media (max-width: 600px) {
     .top-section {
         display: block;
@@ -209,5 +225,38 @@ th:first-child {
     }
     img {
         margin: initial;
+    }
+    footer ul {
+        display: block;
+    }
+    footer ul li {
+        margin-bottom: 10px;
+    }
+    table {
+        display: block;
+        overflow-x: auto;
+    }
+    /* tables should be vertical on small screens */
+    table, thead, tbody, th, td, tr { 
+		display: block; 
+	}
+    thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+    td {
+        border: none;
+        position: relative;
+        padding-left: 50%;
+    }
+    td:before {
+        position: absolute;
+        top: 6px;
+        left: 6px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+        font-weight: bold;
     }
 }

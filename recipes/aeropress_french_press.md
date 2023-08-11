@@ -1,6 +1,7 @@
 ---
 layout: recipe
 title: Aeropress (French Press Style)
+method: Aeropress
 image: https://jamesg.blog/assets/aeropress_brewing_chamber.jpeg
 coffee_used: 15g
 serves: 1

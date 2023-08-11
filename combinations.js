@@ -24,6 +24,10 @@ layout: compare_grinders
 title: ${grinderData.title} vs ${otherGrinderData.title}
 grinder: ${grinderData.title}
 otherGrinder: ${otherGrinderData.title}
+first_image: ${grinderData.image}
+second_image: ${otherGrinderData.image}
+first_rating: [${grinderData.first_rating}]
+second_rating: [${otherGrinderData.first_rating}]
 ---
 `;
             var slug = `${grinderData.title}-vs-${otherGrinderData.title}`.toLowerCase().replace(/ /g, '-');
@@ -53,11 +57,11 @@ layout: compare_brewers
 title: ${brewerData.title} vs ${otherBrewerData.title}
 brewer: ${brewerData.title}
 otherBrewer: ${otherBrewerData.title}
+first_image: ${brewerData.image}
+second_image: ${otherBrewerData.image}
 ---
 `;
         var slug = `${brewerData.title}-vs-${otherBrewerData.title}`.toLowerCase().replace(/ /g, '-');
-
-        console.log(slug)
 
         fs.writeFileSync(`compare/brewers/${slug}.md`, page);
         }

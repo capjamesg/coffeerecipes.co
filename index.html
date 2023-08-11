@@ -33,63 +33,15 @@ title: Explore Coffee Recipes
     <div style="flex: 1 50%;">
         <label for="method">Filter by Method</label><br>
         <select id="method">
-            <option value="all">All Methods</option>
-            <option value="aeropress">Aeropress</option>
-            <option value="chemex">Chemex</option>
-            <option value="french-press">French Press</option>
-            <option value="v60">V60</option>
         </select>
     </div>
     <div style="flex: 1 50%;">
         <label for="grinder">Filter by Grinder</label><br>
         <select id="grinder">
             <option value="all">All Grinders</option>
-            <option value="comandante">Comandante</option>
-            <option value="encore">Baratza Encore</option>
-            <option value="wilfa">Wilfa Svart</option>
         </select>
     </div>
 </div>
-
-<script>
-    function filterByMethod(method) {
-        const cards = document.querySelectorAll('.card');
-        cards.forEach(card => {
-            if (method === 'all') {
-                card.style.display = 'block';
-            } else {
-                if (card.dataset.method === method) {
-                    card.style.display = 'block';
-                } else {
-                    card.style.display = 'none';
-                }
-            }
-        });
-    }
-
-    document.querySelector('#method').addEventListener('change', function() {
-        filterByMethod(this.value);
-    });
-
-    function filterByGrinder(grinder) {
-        const cards = document.querySelectorAll('.card');
-        cards.forEach(card => {
-            if (grinder === 'all') {
-                card.style.display = 'block';
-            } else {
-                if (card.dataset.grinder === grinder) {
-                    card.style.display = 'block';
-                } else {
-                    card.style.display = 'none';
-                }
-            }
-        });
-    }
-
-    document.querySelector('#grinder').addEventListener('change', function() {
-        filterByGrinder(this.value);
-    });
-</script>
 
 <style>
     .card-info {
@@ -134,3 +86,70 @@ title: Explore Coffee Recipes
         grid-gap: 1rem;
     }
 </style>
+
+
+<script>
+    function filterByMethod(method) {
+        const cards = document.querySelectorAll('.card');
+        cards.forEach(card => {
+            if (method === 'all') {
+                card.style.display = 'block';
+            } else {
+                if (card.dataset.method === method) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            }
+        });
+    }
+
+    function filterByGrinder(grinder) {
+        const cards = document.querySelectorAll('.card');
+        cards.forEach(card => {
+            if (grinder === 'all') {
+                card.style.display = 'block';
+            } else {
+                console.log(card.dataset.grinder);
+                if (card.dataset.grinder === grinder) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            }
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const methodSelect = document.querySelector('#method');
+        const grinderSelect = document.querySelector('#grinder');
+
+        methodSelect.addEventListener('change', (e) => {
+            filterByMethod(e.target.value);
+        });
+
+        grinderSelect.addEventListener('change', (e) => {
+            filterByGrinder(e.target.value);
+        });
+    });
+
+    // add method
+    const methodSelect = document.querySelector('#method');
+    
+    // get data-method
+    var methods = [];
+
+    const cards = document.querySelectorAll('.card');
+
+    cards.forEach(card => {
+        methods.push(card.dataset.method);
+    });
+
+    methods = [...new Set(methods)];
+
+    methodSelect.innerHTML = '<option value="all">All Methods</option>';
+
+    methods.forEach(method => {
+        methodSelect.innerHTML += `<option value="${method}">${method}</option>`;
+    });
+</script>

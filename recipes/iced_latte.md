@@ -1,6 +1,7 @@
 ---
 layout: recipe
 title: Iced Latte
+method: Iced
 serves: 1
 image: https://images.unsplash.com/photo-1514295224281-fce533c599dc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8aWNlZCUyMGxhdHRlfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60
 coffee_used: 15g

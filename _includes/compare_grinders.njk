@@ -10,16 +10,40 @@ layout: main
 
 <div class="two-image-grid">
     <div>
-        <img src="{{ page.first_image }}" alt="{{ page.first_item }}">
-        <figcaption>Comandante C40</figcaption>
+        <img src="{{ first_image }}" alt="{{ grinder }}">
+        <figcaption>{{ grinder }}</figcaption>
     </div>
     <div>
-        <img src="{{ page.second_image }}" alt="{{ page.second_item }}">
-        <figcaption>Hario Mini Mill</figcaption>
+        <img src="{{ second_image }}" alt="{{ otherGrinder }}">
+        <figcaption>{{ otherGrinder }}</figcaption>
     </div>
 </div>
 
-<p>Compare the {{ first_item }} and the {{ second_item }} grinders.</p>
+<p>Compare the {{ grinder }} and the {{ otherGrinder }} grinders.</p>
+
+<style>
+    @media (max-width: 600px) {
+        table {
+            border-collapse: collapse;
+            border: var(--main-color) 2px solid;
+            border-radius: 5px;
+            width: 100%;
+        }
+        td:nth-of-type(1):before { content: "Name"; }
+        td:nth-of-type(2):before { content: "Cost"; }
+        td:nth-of-type(3):before { content: "Manual / Electric"; }
+        td:nth-of-type(4):before { content: "Ideal For"; }
+        td:nth-of-type(5):before { content: "Home Grind Quality"; }
+        td:nth-of-type(6):before { content: "Rating"; }
+
+        .two-image-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        .two-image-grid img {
+            height: 100%;
+        }
+    }
+</style>
 
 <table>
     <thead>
@@ -34,7 +58,7 @@ layout: main
     </thead>
     <tbody>
         <tr>
-            <td>{{ page.first_item }}</td>
+            <td>{{ grinder }}</td>
             <td>$250</td>
             <td>Manual</td>
             <td>Home</td>
@@ -42,7 +66,7 @@ layout: main
             <td>{% for rating in first_rating %} <i class="fa-solid fa-star"></i>{% endfor %}</td>
         </tr>
         <tr>
-            <td>{{ page.second_item }}</td>
+            <td>{{ otherGrinder }}</td>
             <td>$40</td>
             <td>Manual</td>
             <td>Travel</td>

@@ -1,6 +1,7 @@
 ---
 layout: recipe
 title: Inverted Aeropress
+method: Aeropress
 serves: 1
 image: https://jamesg.blog/assets/aeropress_brewing_chamber.jpeg
 duration_processed: 1M35S

@@ -1,6 +1,7 @@
 ---
 layout: recipe
 title: Kalita Wave
+method: Kalita Wave
 serves: 1
 image: https://images.unsplash.com/photo-1579027408012-e037bfc269b0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8a2FsaXRhJTIwd2F2ZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60
 coffee_used: 15g
